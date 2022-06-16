@@ -26,8 +26,8 @@ public class FormApplication {
     @Bean
     public ApplicationRunner initializeStudents() {
 
-        final Student student1 = new Student(randomUUID(), "Luiz", "Gomes");
-        final Student student2 = new Student(randomUUID(), "Pedro", "Castro");
+        final Student student1 = new Student(randomUUID(), "Luiz", "Gomes", "31");
+        final Student student2 = new Student(randomUUID(), "Alisson", "Moraes", "47");
 
         return args -> studentRepository.saveAll(Arrays.asList(student1, student2));
     }
