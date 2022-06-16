@@ -31,9 +31,9 @@ public class StudentRepositoryTest {
 
         final Student salvo = studentRepository.save(esperado);
 
-        final Student actual = entityManager.find(Student.class, salvo.getId());
+        final Student atual = entityManager.find(Student.class, salvo.getId());
 
-        assertThat(actual).isEqualTo(esperado);
+        assertThat(atual).isEqualTo(esperado);
     }
 
 }

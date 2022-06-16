@@ -27,7 +27,7 @@ public class FormApplication {
     public ApplicationRunner initializeStudents() {
 
         final Student student1 = new Student(randomUUID(), "Luiz", "Gomes");
-        final Student student2 = new Student(randomUUID(), "Linda", "Rostam");
+        final Student student2 = new Student(randomUUID(), "Pedro", "Castro");
 
         return args -> studentRepository.saveAll(Arrays.asList(student1, student2));
     }

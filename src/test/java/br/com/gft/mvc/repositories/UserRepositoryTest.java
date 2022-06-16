@@ -1,6 +1,7 @@
 package br.com.gft.mvc.repositories;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static java.util.UUID.randomUUID;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,19 +10,29 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import br.com.gft.mvc.entities.User;
+
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class UserRepositoryTest {
-	
-	@Autowired
-	private TestEntityManager entityManager;
-	
-	@Autowired
-	private StudentRepository repository;
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+    @Autowired
+    private TestEntityManager entityManager;
 
+    @Autowired
+    private UserRepository repository;
+
+    @Test
+    public void save_StoresRecord_WhenRecordIsValid() {
+
+        final User expected = new User();
+        expected.setUsername(randomUUID().toString());
+        expected.setPassword(randomUUID().toString());
+
+        final User saved = repository.save(expected);
+
+        final User actual = entityManager.find(User.class, saved.getUsername());
+
+        assertThat(actual).isEqualTo(expected);
+    }
 }

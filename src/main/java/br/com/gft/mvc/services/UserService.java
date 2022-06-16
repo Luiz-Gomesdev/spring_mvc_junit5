@@ -7,13 +7,11 @@ import br.com.gft.mvc.repositories.UserRepository;
 
 @Service
 public class UserService {
-	
-	private UserRepository userRepository;
-	
-	@Autowired
-	public UserService(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
-	
-	
+
+	private final UserRepository repository;
+
+    @Autowired
+    public UserService(final UserRepository repository) {
+        this.repository = repository;
+    }
 }
