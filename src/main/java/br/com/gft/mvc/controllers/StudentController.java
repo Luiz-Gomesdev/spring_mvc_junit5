@@ -19,7 +19,7 @@ import br.com.gft.mvc.services.StudentService;
 @Controller
 public class StudentController {
 
-    static final int DEFAULT_PAGE_SIZE = 2;
+    static final int DEFAULT_PAGE_SIZE = 10;
 
     private final StudentService service;
 

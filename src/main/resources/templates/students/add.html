@@ -25,6 +25,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <h1>CRUD - Alunos</h1>
+            
             <div class="d-flex">
                 <button class="btn btn-primary" type="submit">Logout</button>
             </div>
@@ -41,11 +42,11 @@
         <form th:action="@{save}" method="post" th:object="${student}">
 
             <div class="mb-3">
-                <label for="firstName" class="form-label">First Name</label>
+                <label for="firstName" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="firstName" name="firstName" th:value="*{firstName}"/>
             </div>
             <div class="mb-3">
-                <label for="lastName" class="form-label">Last Name</label>
+                <label for="lastName" class="form-label">Sobrenome</label>
                 <input type="text" class="form-control" id="lastName" name="lastName" th:value="*{lastName}"/>
             </div>
             <div class="mb-3">
@@ -53,8 +54,8 @@
                 <input type="text" class="form-control" id="age" name="age" th:value="*{age}"/>
             </div>
 
-            <input type="submit" class="btn btn-success" value="Add" />
-            <a href="list" class="btn btn-outline-danger">Cancel</a>
+            <input type="submit" class="btn btn-success" value="Salvar" />
+            <a href="list" class="btn btn-outline-danger">Cancelar</a>
         </form>
     </div>
 </body>

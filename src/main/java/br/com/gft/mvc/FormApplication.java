@@ -9,11 +9,13 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 import br.com.gft.mvc.entities.Student;
 import br.com.gft.mvc.repositories.StudentRepository;
 
 @SpringBootApplication
+@EnableWebSecurity
 public class FormApplication {
 
     @Autowired

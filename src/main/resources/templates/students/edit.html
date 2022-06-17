@@ -22,14 +22,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <h1>CRUD - Alunos</h1>
-            <div class="d-flex">
-                <button class="btn btn-primary" type="submit">Logout</button>
-            </div>
-        </div>
-    </nav>
+    <nav th:replace="students/header :: header"></nav>
 
     <br />
     <br />
@@ -62,7 +55,7 @@
                 <input type="text" class="form-control" id="age" name="age" th:value="*{age}"/>
             </div>
 
-            <input type="submit" class="btn btn-success" value="Update" />
+            <input type="submit" class="btn btn-success" value="Atualizar" />
             <a href="list" class="btn btn-outline-danger">Cancelar</a>
         </form>
     </div>
