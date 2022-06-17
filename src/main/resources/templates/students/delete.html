@@ -36,30 +36,34 @@
 
     <div class="container-sm">
 
-        <h2 class="navbar-brand; style=width: 20%">Excluir Aluno</h2>
+        <h2 class="navbar-brand">Excluir Aluno</h2>
 
-        <div class="alert alert-danger" role="alert">
-            Aluno não encontrado
+        <div th:if="${student.id == null}">
+            <div class="alert alert-danger" role="alert" th:text="'O aluno com Id [' + ${id} + '] não foi encontrado'">
+                Student not found
+            </div>
+            <a href="list" class="btn btn-outline-secondary">Voltar</a>
         </div>
 
-        <form action="#" method="post">
+        <form th:action="@{delete}" method="post" th:object="${student}" th:if="${student.id != null}">
+
+            <input type="hidden" id="id" name="id" th:value="*{id}" />
+
             <div class="mb-3">
                 <label for="firstName" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="firstName" disabled="true" />
+                <input type="text" class="form-control" id="firstName" disabled="true" th:value="*{firstName}" />
             </div>
-            
             <div class="mb-3">
                 <label for="lastName" class="form-label">Sobrenome</label>
-                <input type="text" class="form-control" id="lastName" disabled="true"/>
+                <input type="text" class="form-control" id="lastName" disabled="true" th:value="*{lastName}" />
             </div>
-            
             <div class="mb-3">
-                <label for="age" class="form-label" >Idade</label>
-                <input type="text" class="form-control" id="age" disabled="true"/>
+                <label for="age" class="form-label">Idade</label>
+                <input type="text" class="form-control" id="age" disabled="true" th:value="*{age}" />
             </div>
 
-            <input type="submit" class="btn btn-danger" value="Deletar" />
-            <a href="#" class="btn btn-outline-secondary">Cancelar</a>
+            <input type="submit" class="btn btn-danger" value="Delete" />
+            <a href="list" class="btn btn-outline-danger">Cancel</a>
         </form>
     </div>
 </body>

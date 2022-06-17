@@ -47,14 +47,14 @@
             </thead>
             <tbody>
                 <tr th:each="student,iteration : ${students}">
-                    <td   th:text="${(currentPageNumber * pageSize) + iteration.count}" style="text-align: center">1</td>
+                    <td th:text="${(currentPageNumber * pageSize) + iteration.count}" style="text-align: center">1</td>
                     <td th:text="${student.firstName}">Peter</td>
                     <td th:text="${student.lastName}">Smith</td>
                     <td th:text="${student.age}" style="text-align: center">31</td>
                     <td style="text-align: center">
-                        <a class="btn btn-secondary" href="#" role="button">Visualizar</a>
-				             <a class="btn btn-primary" href="#" role="button">Editar</a>
-				             <a class="btn btn-danger" href="#" role="button">Excluir</a>
+						<a class="btn btn-secondary" th:href="'view?id=' + ${student.id}">Visualizar</a>
+						<a class="btn btn-primary" th:href="'edit?id=' + ${student.id}">Editar</a>
+						<a class="btn btn-danger" th:href="'delete?id=' + ${student.id}">Deletar</a>
                     </td>
                 </tr>
             </tbody>

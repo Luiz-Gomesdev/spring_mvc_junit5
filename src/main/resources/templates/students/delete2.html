@@ -36,25 +36,30 @@
 
     <div class="container-sm">
 
-        <h2 class="navbar-brand">Novo Aluno</h2>
+        <h2 class="navbar-brand; style=width: 20%">Excluir Aluno</h2>
 
-        <form th:action="@{save}" method="post" th:object="${student}">
+        <div class="alert alert-danger" role="alert">
+            Aluno não encontrado
+        </div>
 
+        <form action="#" method="post">
             <div class="mb-3">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" th:value="*{firstName}"/>
+                <label for="firstName" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="firstName" disabled="true" />
             </div>
+            
             <div class="mb-3">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" th:value="*{lastName}"/>
+                <label for="lastName" class="form-label">Sobrenome</label>
+                <input type="text" class="form-control" id="lastName" disabled="true"/>
             </div>
+            
             <div class="mb-3">
-                <label for="age" class="form-label">Idade</label>
-                <input type="text" class="form-control" id="age" name="age" th:value="*{age}"/>
+                <label for="age" class="form-label" >Idade</label>
+                <input type="text" class="form-control" id="age" disabled="true"/>
             </div>
 
-            <input type="submit" class="btn btn-success" value="Add" />
-            <a href="list" class="btn btn-outline-danger">Cancel</a>
+            <input type="submit" class="btn btn-danger" value="Deletar" />
+            <a href="#" class="btn btn-outline-secondary">Cancelar</a>
         </form>
     </div>
 </body>

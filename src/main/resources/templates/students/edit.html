@@ -36,28 +36,34 @@
 
     <div class="container-sm">
 
-        <h2 class="navbar-brand; style=width: 20%">Editar Aluno</h2>
+        <h2 class="navbar-brand">Editar Aluno</h2>
 
-        <div class="alert alert-danger" role="alert">
-            Aluno não encontrado
+        <div th:if="${student.id == null}">
+            <div class="alert alert-danger" role="alert" th:text="'O aluno com Id [' + ${id} + '] não foi encontrado'">
+                Aluno não encontrado
+            </div>
+            <a href="list" class="btn btn-outline-secondary">Voltar</a>
         </div>
 
-        <form action="#" method="post">
+        <form th:action="@{save}" method="post" th:object="${student}" th:if="${student.id != null}">
+
+            <input type="hidden" id="id" name="id" th:value="*{id}" />
+
             <div class="mb-3">
                 <label for="firstName" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="firstName"/>
+                <input type="text" class="form-control" id="firstName" name="firstName" th:value="*{firstName}"/>
             </div>
             <div class="mb-3">
                 <label for="lastName" class="form-label">Sobrenome</label>
-                <input type="text" class="form-control" id="lastName"/>
+                <input type="text" class="form-control" id="lastName" name="lastName" th:value="*{lastName}"/>
             </div>
             <div class="mb-3">
-                <label for="age" class="form-label" >Idade</label>
-                <input type="text" class="form-control" id="age"/>
+                <label for="age" class="form-label">Idade</label>
+                <input type="text" class="form-control" id="age" name="age" th:value="*{age}"/>
             </div>
 
-            <input type="submit" class="btn btn-success" value="Atualizar" />
-            <a href="#" class="btn btn-outline-danger">Cancelar</a>
+            <input type="submit" class="btn btn-success" value="Update" />
+            <a href="list" class="btn btn-outline-danger">Cancelar</a>
         </form>
     </div>
 </body>
