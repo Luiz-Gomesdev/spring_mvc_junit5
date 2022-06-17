@@ -35,7 +35,7 @@ public class StudentServiceTest {
 
 		final UUID id = randomUUID();
 
-		final Student student = new Student(randomUUID(), randomUUID().toString(), randomUUID().toString());
+		final Student student = new Student(randomUUID(), randomUUID().toString(), randomUUID().toString(), randomUUID().toString());
 
 		final Optional<Student> expected = Optional.of(student);
 
